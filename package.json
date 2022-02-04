@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/harjoitukset/nodejs-postalcodes#readme",
   "dependencies": {
-    "express": "^4.17.2",
-    "nodemon": "^2.0.15"
+    "express": "4",
+    "nodemon": "2"
   },
   "devDependencies": {
-    "jest": "^27.4.7",
-    "supertest": "^6.2.2"
+    "jest": "27",
+    "supertest": "6"
   }
 }
