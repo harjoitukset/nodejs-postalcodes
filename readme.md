@@ -14,17 +14,19 @@ Kloonatessasi repositoriota varmista, että Git-osoitteen lopussa on oma GitHub-
 
 ## Tämän projektin käyttäminen ja testaaminen
 
-Tässä projektissa palvelimen JavaScript-koodit on jaettu kahteen osaan:
+Tässä projektissa palvelimen JavaScript-koodi on jaettu kahteen osaan:
 
 **app.js** sisältää express-sovelluksen http-polkujen määritykset, ja sinun tulee kirjoittaa ratkaisusi tähän tiedostoon.
 
-**index.js** sisältää http-palvelimen käynnistykseen liittyvän logiikan.
+**index.js** sisältää http-palvelimen käynnistykseen liittyvän logiikan. Tätä tiedostoa ei tarvitse muuttaa.
 
 Tämän projektin riiippuvuuksien asentaminen onnistuu `npm install`-komennolla. Tämän jälkeen voit kirjoittaa `npm start`, joka käynnistää http-palvelimen omalla tietokoneellasi portissa 3000. Kun palvelin on käynnissä, voit ottaa siihen yhteyden selaimella osoitteessa http://localhost:3000.
 
-Tehtävän ratkaisemiseksi sinun kannattaa todennäköisesti lisätä projektiisi myös uusia JavaScript-tiedostoja sekä npm-riippuvuuksia. Varmista että kaikki asentamasi riippuvuudet löytyvät lopulta `package.json`-tiedostosta, jotta ne asentuvat myös GitHub classroomiin.
+Projekti hyödyntää [nodemon](https://www.npmjs.com/package/nodemon)-nimistä työkalua, joka käynnistää palvelimen automaattisesti uudelleen, kun teet muutoksia sen tiedostoihin. Nodemon on määritetty [package.json:iin](./package.json) käynnistymään `npm start`-komennolla.
 
-Kun olet saanut harjoituksen osia toteutettua, voit suorittaa tehtävälle kirjoitetut Jest-testit. Testit suoritetaan komennolla `npm test`. Testit sijaitsevat [test](./test)-hakemistossa ja voit halutessasi tutustua myös niiden lähdekoodeihin.
+Tehtävän ratkaisemiseksi sinun kannattaa todennäköisesti lisätä projektiisi myös uusia JavaScript-tiedostoja sekä npm-riippuvuuksia. Varmista, että lisäät uudet tiedostot add- ja commit-komennoilla. Asentamiesi riippuvuuksien tulee myös löytyä `package.json`-tiedostosta, jotta ne asentuvat myös GitHub classroomiin.
+
+Kun olet saanut harjoituksen osia toteutettua, voit suorittaa tehtävälle kirjoitetut [Jest](https://jestjs.io/)-testit. Testit suoritetaan komennolla `npm test`. Testit sijaitsevat [test](./test)-hakemistossa ja voit halutessasi tutustua myös niiden lähdekoodeihin.
 
 
 ## Osa 1: JSON-tiedoston hakeminen ja parametrin käsittely (3 pistettä)
@@ -70,9 +72,12 @@ Tällä kertaa vastaus palautetaan JSON-muodossa siten, että kaikki annettua to
 }
 ```
 
-Ohjelman tulee löytää postinumerot annetun nimen **kirjainkoosta riippumatta**. Varaudu myös parhaaksi katsomallasi tavalla tapaukseen, että pyydettyä postitoimipaikkaa ei löydy aineistosta.
+Ohjelman tulee löytää postinumerot annetun nimen **kirjainkoosta riippumatta**.
 
-**Vinkki**
+Mikäli pyydettyä postitoimipaikkaa ei löydy aineistosta lainkaan, HTTP-pyynnön status-koodiksi täytyy asettaa **404**.
+
+
+**Vinkki JSON:in läpikäyntiin**
 
 Python-harjoitusten yhteydessä käytimme aineiston läpikäynnissä Pythonin dict-tietorakenteen `keys()`-, `values()`- ja `items()`-metodeja. 
 
@@ -128,3 +133,19 @@ Välimuistiin asettamisen ja sieltä hakemisen lisäksi vanhentuneet vastaukset 
 Tämän lisätehtävän ratkaisemisessa voit halutessasi käyttää hyödyksi esimerkiksi fetch-kutsuja välimuistittavaa [node-fetch-cache](https://www.npmjs.com/package/node-fetch-cache)-kirjastoa tai sanakirjan tavoin toimivaa [node-cache](https://www.npmjs.com/package/node-cache)-kirjastoa. Voit myös halutessasi toteuttaa oman välimuistituslogiikan. 
 
 Riippuvuuksia asentaessasi on hyvä muistaa, että npm-paketit ovat erinäisten tahojen julkaisemaa suoritettavaa koodia. Niitä asennettaessa kannattaa perehtyä projektien laatuun ja luotettavuuteen esimerkiksi niiden GitHub-sivujen avulla: [node-cache](https://github.com/node-cache/node-cache), [node-fetch-cache](https://github.com/mistval/node-fetch-cache).
+
+---
+
+# Lisenssit ja tekijänoikeudet
+
+Tämän oppimateriaalin on kehittänyt Teemu Havulinna ja se on lisensoitu [Creative Commons BY-NC-SA -lisenssillä](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+## Postin postinumeroaineisto
+
+Tässä tehtävässä hyödynnetään [@theikkila](https://github.com/theikkila):n ja [@otlaitil](https://github.com/otlaitil):an projektia [https://github.com/theikkila/postinumerot](https://github.com/theikkila/postinumerot), joka hakee säänöllisesti Postin tietokannasta kaikki postinumerotiedot.
+
+> *"Data on postin ja sitä koskee kaikki http://www.posti.fi/liitteet-yrityksille/ehdot/postinumeropalvelut-palvelukuvaus-ja-kayttoehdot.pdf dokumentin käyttöehdot."*
+>
+> *"JSON-muunnokset ovat vapaasti käytettävissä ja muunneltavissa."*
+>
+> Lähde: https://github.com/theikkila/postinumerot

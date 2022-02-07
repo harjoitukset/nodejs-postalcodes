@@ -10,6 +10,7 @@ describe('finding postal district names by giving a postal code', () => {
         const response = await request(app).get('/postalcodes?number=99999');
 
         assert.ok(response.ok, `Server responded with HTTP status ${response.statusCode}`);
+        assert.ok(response.headers['content-type'].includes('json'), `Expected JSON, got "${response.headers['content-type']}"`);
         assert.ok(response.body.name, 'Response should have attribute `name`');
         assert.strictEqual(response.body.name.toLowerCase(), 'korvatunturi');
     });
@@ -18,7 +19,16 @@ describe('finding postal district names by giving a postal code', () => {
         const response = await request(app).get('/postalcodes?number=00100');
 
         assert.ok(response.ok, `Server responded with HTTP status ${response.statusCode}`);
+        assert.ok(response.headers['content-type'].includes('json'), `Expected JSON, got "${response.headers['content-type']}"`);
         assert.ok(response.body.name, 'Response should have attribute `name`');
         assert.strictEqual(response.body.name.toLowerCase(), 'helsinki');
+    });
+
+    test('unknown postal code returns 404', async () => {
+        const response = await request(app).get('/postalcodes?number=-1');
+
+        assert.strictEqual(response.status, 404, `Server responded with HTTP status ${response.statusCode}, expected 404.`);
+        assert.ok(response.headers['content-type'].includes('json'), `Expected JSON, got "${response.headers['content-type']}"`);
+        assert.strictEqual(response.body.name, null, 'Attribute `name` should be null');
     });
 });
