@@ -2,7 +2,7 @@
 
 Tässä tehtävässä sinun tulee hyödyntää Node.js:ää, npm:ää sekä [express](https://www.npmjs.com/package/express)-kirjastoa ja toteuttaa HTTP-palvelu, joka palauttaa postitoimipaikkojen nimiä sekä postinumeroita.
 
-Tavoitteenamme on asynkronisen web-ohjelmoinnin opettelun lisäksi kerrata tietorakenteiden läpikäyntiä. Mikäli tehtävät eivät tarjoa tarvittavaa haastetta tai haluat oppia välimuistituksesta, voit tehdä lisäksi valinnaisen lisätehtävän.
+Tavoitteenamme on asynkronisen web-ohjelmoinnin opettelun lisäksi kerrata tietorakenteiden läpikäyntiä.
 
 
 ## Harjoitusten kloonaaminen
@@ -130,9 +130,12 @@ Toinen vaihtoehto on toteuttaa välimuistitus osaksi omaa ohjelmaamme:
 
 Välimuistiin asettamisen ja sieltä hakemisen lisäksi vanhentuneet vastaukset tulee luonnollisesti poistaa välimuistista, jolloin data haetaan uudestaan API-rajapinnasta. Välimuistitetun datan poistamista välimuistista kutsutaan termillä "cache invalidation" ja siihenkin on olemassa [erilaisia lähestymistapoja](https://www.varnish-software.com/glossary/what-is-cache-invalidation/).
 
-Tämän lisätehtävän ratkaisemisessa voit halutessasi käyttää hyödyksi esimerkiksi fetch-kutsuja välimuistittavaa [node-fetch-cache](https://www.npmjs.com/package/node-fetch-cache)-kirjastoa tai sanakirjan tavoin toimivaa [node-cache](https://www.npmjs.com/package/node-cache)-kirjastoa. Voit myös halutessasi toteuttaa oman välimuistituslogiikan. 
+Tämän lisätehtävän ratkaisemisessa voit halutessasi käyttää hyödyksi esimerkiksi http-tasolla pyyntöjä välimuistittavia kirjastoja tai sanakirjan tavoin toimivia välimuisteja, jotka pitävät niihin asetetut arvot tallessa vain ennalta määritetyn ajan. Voit myös halutessasi toteuttaa oman välimuistituslogiikan.
 
-Riippuvuuksia asentaessasi on hyvä muistaa, että npm-paketit ovat erinäisten tahojen julkaisemaa suoritettavaa koodia. Niitä asennettaessa kannattaa perehtyä projektien laatuun ja luotettavuuteen esimerkiksi niiden GitHub-sivujen avulla: [node-cache](https://github.com/node-cache/node-cache), [node-fetch-cache](https://github.com/mistval/node-fetch-cache).
+Riippuvuuksia asentaessasi on hyvä huomata, että npm-paketit ovat erinäisten tahojen julkaisemaa suoritettavaa koodia. Niitä asennettaessa kannattaa perehtyä projektien laatuun ja luotettavuuteen esimerkiksi niiden GitHub-sivujen avulla.
+
+**Huomioi myös riippuvuuksia käyttäessäsi, että Nodessa on kaksi erillistä moduuliratkaisua: [ECMAScript-moduulit](https://nodejs.org/api/esm.html#esm_package_json_type_field) ja [CommonJS-mooduulit](https://nodejs.org/api/modules.html). Tehtäväpohja on toteutettu CommonJS-syntaksilla, joten voit joutua muuttamaan `package.json`-tiedostoa ja muita tiedostoja ECMAScript-moduulien hyödyntämiseksi.**
+
 
 ---
 
