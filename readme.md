@@ -46,7 +46,16 @@ Vastaus tulee palauttaa JSON-muodossa seuraavasti:
 }
 ```
 
-Varaudu myös tilanteeseen, jossa annettua postinumeroa ei löydy. Aseta tällöin toimipaikan nimeksi `null`-arvo, ja aseta vastauksen http-status-koodiksi 404 (not found).
+Varaudu myös tilanteeseen, jossa annettua postinumeroa ei löydy. Aseta tällöin toimipaikan nimeksi `null`-arvo, ja aseta vastauksen http-status-koodiksi 404 (not found):
+
+```json
+{
+  "number": "90210",
+  "name": null
+}
+```
+
+Tutustu Express:in [response-objektin dokumentaatioon](https://expressjs.com/en/api.html#res.status) statuskoodin asettamisen osalta.
 
 [Postinumeroaineisto](https://github.com/theikkila/postinumerot) löytyy GitHubista [JSON-muodossa](https://raw.githubusercontent.com/theikkila/postinumerot/master/postcode_map_light.json).
 
