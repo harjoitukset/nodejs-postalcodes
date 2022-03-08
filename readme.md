@@ -57,9 +57,7 @@ Varaudu myös tilanteeseen, jossa annettua postinumeroa ei löydy. Aseta tällö
 
 Tutustu Express:in [response-objektin dokumentaatioon](https://expressjs.com/en/api.html#res.status) statuskoodin asettamisen osalta.
 
-[Postinumeroaineisto](https://github.com/theikkila/postinumerot) löytyy GitHubista [JSON-muodossa](https://raw.githubusercontent.com/theikkila/postinumerot/master/postcode_map_light.json).
-
-JSON-aineisto tulee ladata tässä tehtävässä dynaamisesti esimerkiksi fetch-funktiolla tai axios-kirjastolla. **Älä siis tallenna aineistoa staattiseksi tiedostoksi.**
+[Postinumeroaineisto](https://github.com/theikkila/postinumerot) löytyy GitHubista [JSON-muodossa](https://raw.githubusercontent.com/theikkila/postinumerot/master/postcode_map_light.json). JSON-aineisto tulee ladata tässä tehtävässä dynaamisesti esimerkiksi fetch-funktiolla tai axios-kirjastolla. **Älä siis tallenna aineistoa staattiseksi tiedostoksi.**
 
 Voit lukea tarkemman kuvauksen käsiteltävästä aineistosta aikaisemmasta [Python-tehtävän tehtävänannosta](https://github.com/harjoitukset/python-postalcodes).
 
