@@ -81,7 +81,14 @@ Tällä kertaa vastaus palautetaan JSON-muodossa siten, että kaikki annettua to
 
 Ohjelman tulee löytää postinumerot annetun nimen **kirjainkoosta riippumatta**.
 
-Mikäli pyydettyä postitoimipaikkaa ei löydy aineistosta lainkaan, HTTP-pyynnön status-koodiksi täytyy asettaa **404**.
+Mikäli pyydettyä postitoimipaikkaa ei löydy aineistosta lainkaan, HTTP-pyynnön status-koodiksi täytyy asettaa **404** ja `numbers` taulukon tulee olla tyhjä:
+
+```json
+{
+  "name": "tylypahka",
+  "numbers": []
+}
+```
 
 
 **Vinkki JSON:in läpikäyntiin**
